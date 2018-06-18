@@ -1,27 +1,21 @@
-import pexif,csv,os,sys,numpy as np
-os.getcwd()
-gps=np.zeros((1000,2));
-with open('log.csv', mode='r') as f:
-    reader = csv.reader(f)
-    count=0;
-    for row in reader:
-        if row[0] in ['CAM']:
-           # np.array(gps(count,:))=row;
-           gps[count,0]=row[4];
-           gps[count,1]=row[5];
-           count=count+1;
-           # print(row)
+import pexif,os
+import numpy as np
+import Tkinter, Tkconstants, tkFileDialog
+from Tkinter import * 
+import pandas as pd
 
-jpeg = pexif.JpegFile.fromFile("2.jpg")
-(lat,lng)=(90.312312, 45.412321)
-jpeg.set_geo(lat, lng)
-new_file = jpeg.writeString()
-new = pexif.JpegFile.fromString(new_file)
-new_lat, new_lng = new.get_geo()
-jpeg.writeFile("2_new.jpg")
+input_location = tkFileDialog.askdirectory(initialdir = "/",title = "Select input photos location");
+output_location = tkFileDialog.askdirectory(initialdir = "/",title = "Select output photos location");
 
-with open('GeoIPCountryWhois.csv', mode='r') as f:
-    reader = csv.reader(f)
-    for row in reader:
-        if row[0] in ['66.35.205.88']:
-            print row
+csv_file = tkFileDialog.askopenfilename(initialdir = "/",title = "Select geolocation csv file",filetypes = (("csv files","*.csv"),("all files","*.*")))
+
+a= pd.read_csv(csv_file)
+for i in range(len(a)):
+    jpeg = pexif.JpegFile.fromFile(input_location + "/" + a['Images'][i]);
+    (lat,lng)=(a['Lat'][i], a['Long'][i]);
+    jpeg.set_geo(lat, lng)
+    new_file = jpeg.writeString()
+    new = pexif.JpegFile.fromString(new_file)
+    new_lat, new_lng = new.get_geo()
+    jpeg.writeFile(output_location + "/" + a['Images'][i])
+    print("Completed " + str(i) + " images, out of " + str(len(a)) + " images");
