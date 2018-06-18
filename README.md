@@ -1,0 +1,1 @@
+This is getagging program which takes images and csv as input
