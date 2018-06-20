@@ -17,5 +17,5 @@ for i in range(len(a)):
     new_file = jpeg.writeString()
     new = pexif.JpegFile.fromString(new_file)
     new_lat, new_lng = new.get_geo()
-    jpeg.writeFile(output_location + "/" + a['Images'][i])
+    jpeg.writeFile(output_location + "/" + "geo_"+ a['Images'][i])
     print("Completed " + str(i) + " images, out of " + str(len(a)) + " images");
