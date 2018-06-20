@@ -1,4 +1,5 @@
-This is getagging program which takes images and csv as input.
+This is geotagging program which takes images and csv as input.
 CSV format should be like this
 
-ImageName, Lat, Long, Elevation
+Images, Lat, Long, Elevation
+DSC124.JPG,23.34354,78.3254543,235.34
