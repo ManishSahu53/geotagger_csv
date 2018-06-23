@@ -14,6 +14,7 @@ Inputs require
 3. CSV File containing geotag information
 
 Dependencies
-pandas - pip install pandas
-Tkinter - pip install Tkinter
-pexif - https://github.com/mcbridejc/pexif.git
+
+1. pandas - pip install pandas
+2. Tkinter - pip install Tkinter
+3. pexif - https://github.com/mcbridejc/pexif.git
