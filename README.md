@@ -1,8 +1,8 @@
 #Geo Tagger
 
-This is geotagging program which takes images and csv as input.
+This is geotagging program which takes images folder, output folder and csv as input.
 
-CSV format should be like this
+The CSV format should be contain only three columns. Example is given below
     
 Images, Lat, Long, Elevation
 
