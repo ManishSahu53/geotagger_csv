@@ -4,7 +4,12 @@ This is geotagging program which takes images and csv as input.
 CSV format should be like this
     
 Images, Lat, Long, Elevation
-DSC124.JPG,23.34354,78.3254543,235.34 /t
+DSC124.JPG,23.34354,78.3254543,235.34
+
+Inputs require
+1. Input Folder containing Images
+2. Output Folder after geotagging
+3. CSV File containing geotag information
 
 Dependencies
 pandas - pip install pandas
