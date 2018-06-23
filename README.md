@@ -2,7 +2,7 @@
 
 This is geotagging program which takes images folder, output folder and csv as input.
 
-The CSV format should be contain only three columns. Example is given below
+The CSV format should be contain only 4 columns. Example is given below
     
 Images, Lat, Long, Elevation
 
